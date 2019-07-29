@@ -13,7 +13,41 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
 Vue.use(MintUI)
+//注册Vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+var store = new Vuex.Store({//	//Vue.Stroe()首字母大写
+    state:{//调用方法:this.$store.state.***
+        cart:[] //购物车数组 {id,count,price,selected:flase}
+    },
+    mutations:{//调用方法:this.$store.commit('方法的名称','按需传递唯一的参数')
+        addToCart(state,goodinfo){
+            var flag = false
 
+            state.cart.some(item =>{
+                if(item.id == goodinfo.id){
+                    item.count+=parseInt(goodinfo.count)
+                    flag = true
+                    return true
+                }
+            })
+
+            if(!flag){
+                state.cart.push(goodinfo)
+            }
+        }
+
+    },
+    getters:{//调用方法:this.$store.getters.***
+        getAllCount(state){//相当于计算属性，也相当于filters
+            var c=0;
+            state.cart.forEach(item =>{
+                c+=item.count
+            })
+            return c
+        }
+    }
+})
 
 //引入样式
 import './lib/mui/css/mui.min.css'
@@ -41,10 +75,16 @@ import moment from 'moment'
 Vue.filter('dateFormat',function(dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
     return moment(dataStr).format(pattern)
 })
+
+//导入图片查看器  安装npm i vue-preview -s
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+
 //导入app组件
 import app from './app.vue'
 var vm = new Vue({
     el: "#app",
     render: c => c(app),
-    router //1.4 把路由对象挂在VM实例上
+    router, //1.4 把路由对象挂在VM实例上
+    store //挂载状态管理对象
 })

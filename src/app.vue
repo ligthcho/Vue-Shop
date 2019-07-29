@@ -1,7 +1,11 @@
 <template>
     <div class="app-conter">
         <!---顶部Header区域-->
-        <mt-header fixed title="vue项目"></mt-header>
+        <mt-header fixed title="vue项目">
+  			<router-link to="" slot="left" v-show="isShow">
+    			<mt-button icon="back"  @click.native="$router.back(-1)">返回</mt-button><!--设置返回坑：https://blog.csdn.net/qq_35393869/article/details/87349360-->
+ 			 </router-link>
+		</mt-header>
 
 		<!--加动画-->
 		<transition>
@@ -19,7 +23,9 @@
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="mui-tab-item-llb" to="/shopcart">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
+					<span class="mui-badge" id="badge">{{this.$store.getters.getAllCount}}</span>
+				</span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item-llb" to="/search">
@@ -30,7 +36,22 @@
     </div>
 </template>
 <script>
-
+export default {
+	data(){
+		return{
+			isShow:false //用于返回首页顶部条不显示返回按钮
+		}
+	},
+	watch:{//监控一个值的变换,并调用因为变化需要执行的方法
+			$route(now,old){     //监控路由变换，控制返回按钮的显示
+				if(now.path=="/home"){
+						this.isShow=false;
+				} else{
+					this.isShow=true;
+				}
+			}
+		}
+}
 </script>
 <style lang="scss" scoped>
     .app-conter{
