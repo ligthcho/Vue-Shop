@@ -51,10 +51,30 @@ var store = new Vuex.Store({ //	//Vue.Stroe()首字母大写
             })
             //把更新后的cart，存到本地
             localStorage.setItem('cart', JSON.stringify(state.cart))
+        },
+        removeToCart(state,id){
+            //根据Id,删除store中那条商品数据
+            state.cart.some((item,i)=>{
+                if(item.id == id){
+                    state.cart.splice(i,1)
+                    return true;
+                }
+            })
+            //把更新后的cart，存到本地
+            localStorage.setItem('cart', JSON.stringify(state.cart))
+        },
+        updateToGoodSelected(state,info){//把状态更新到本地model中
+            state.cart.some(item => {
+                if(item.id == info.id){
+                    item.selected = info.selected
+                }
+            })
+            //把最新的 所有购物车商品的状态保存到store中去
+            localStorage.setItem('cart',JSON.stringify(state.cart))
         }
 
     },
-    getters: { //调用方法: ***
+    getters: { //调用方法: $store.getters.***
         getAllCount(state) { //相当于计算属性，也相当于filters
             var c = 0;
             state.cart.forEach(item => {
@@ -62,10 +82,30 @@ var store = new Vuex.Store({ //	//Vue.Stroe()首字母大写
             })
             return c
         },
-        getGoodsCount(state) {
+        getGoodsCount(state) {//重新组合{88:88} 给numbox用
             var o = {}
             state.cart.forEach(item => {
                 o[item.id] = item.count
+            })
+            return o
+        },
+        getGoodSelected(state,id){//控制购物车单个商品是否选中 {99:flase} 
+            var o ={}
+            state.cart.forEach(item =>{
+                o[item.id] = item.selected //自定义添加属性 selected
+            })
+            return o
+        },
+        getGoodsCountAndAmount(state){//计算购物车总价
+            var o ={
+                count:0,//勾选的数量
+                total:0//勾选的总价
+            }
+            state.cart.forEach(item =>{
+                if(item.selected){
+                    o.count +=item.count,
+                    o.total +=item.price * item.count
+                }
             })
             return o
         }

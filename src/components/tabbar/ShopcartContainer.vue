@@ -2,17 +2,17 @@
   <div class="cart-container">
     <div class="goodslist">
       <!--商品列表区域-->
-      <div class="mui-card" v-for="item in goodslist" :key="item.id">
+      <div class="mui-card" v-for="(item,i) in goodslist" :key="item.id">
         <div class="mui-card-content">
           <div class="mui-card-content-inner">
-            <mt-switch></mt-switch>
+            <mt-switch v-model="$store.getters.getGoodSelected[item.id]" @change="selectedChanged(item.id,$store.getters.getGoodSelected[item.id])"></mt-switch>
             <img :src="item.thumb_path" />
             <div class="info">
               <h1>{{item.title}}</h1>
               <p>
                 <span class="price">￥{{item.sell_price }}</span>
                 <numbox :initcount="$store.getters.getGoodsCount[item.id]" :goodid="item.id"></numbox>
-                <a href="#" class>删除</a>
+                <a href="#" @click.prevent="removeGood(i,item.id)">删除</a>
               </p>
             </div>
           </div>
@@ -21,7 +21,13 @@
       <!--结算区域-->
       <div class="mui-card">
         <div class="mui-card-content">
-          <div class="mui-card-content-inner">结算区域11</div>
+          <div class="mui-card-content-inner total-count">
+            <div class="left">
+              <p>总计（不含运费）</p>
+              <p>已勾选商品<span class="red">{{$store.getters.getGoodsCountAndAmount.count}}</span>件，总价 <span class="red">￥{{$store.getters.getGoodsCountAndAmount.total}}</span></p>
+            </div>
+            <mt-button type="danger">去结算</mt-button>
+          </div>
         </div>
       </div>
     </div>
@@ -58,7 +64,18 @@ export default {
             this.goodslist = result.body.message;
           }
         });
+    },
+    removeGood(index,id){
+      //1.通过索引删除 组件中的商品 
+      //2.同时需要删除并同步存在本地商品
+      this.goodslist.splice(index,1);
+      this.$store.commit('removeToCart',id)
+    },
+    selectedChanged(id,val){
+      //每次点击开关，把最新的快关状态，同步到store中
+      this.$store.commit("updateToGoodSelected",{id,selected:val})
     }
+    
   },
   components: {
     numbox
@@ -94,6 +111,17 @@ export default {
         font-weight: bold;
       }
     }
+    .total-count{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .red{
+        color: red;
+        font-weight: bold;
+        font-size: 13px;
+      }
   }
+  }
+  
 }
 </style>
