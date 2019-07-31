@@ -108,9 +108,9 @@
 
 ## 绘制 商品列表 页面基本结构并美化
 
-##实现 购物车页面
-1.使用VueX共享数据
+## 实现 购物车页面
+1. 使用VueX共享数据
 
-##添加返回按钮
-1.调用mint组件
-2.参考 https://blog.csdn.net/qq_35393869/article/details/87349360
+## 添加返回按钮
+1. 调用mint组件
+2. 参考 https://blog.csdn.net/qq_35393869/article/details/87349360
