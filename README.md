@@ -116,3 +116,6 @@
 2. 参考 https://blog.csdn.net/qq_35393869/article/details/87349360
 
 ## 修改iphone plus 底部显示问题
+
+## 禁止屏幕拖放
+1. content="width=device-width,initial-scale=1.0,maximum-scale=1.0"
