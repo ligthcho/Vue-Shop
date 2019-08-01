@@ -1,7 +1,7 @@
 <template>
     <div class="app-conter">
         <!---顶部Header区域-->
-        <mt-header fixed title="vue项目">
+        <mt-header fixed title="基于vue的商城项目">
   			<router-link to="" slot="left" v-show="isShow">
     			<mt-button icon="back"  @click.native="$router.back(-1)">返回</mt-button><!--设置返回坑：https://blog.csdn.net/qq_35393869/article/details/87349360-->
  			 </router-link>

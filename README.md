@@ -114,3 +114,5 @@
 ## 添加返回按钮
 1. 调用mint组件
 2. 参考 https://blog.csdn.net/qq_35393869/article/details/87349360
+
+## 修改iphone plus 底部显示问题

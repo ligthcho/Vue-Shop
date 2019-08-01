@@ -16,6 +16,7 @@ import GoodComment from './components/goods/GoodComment.vue'
 //创建路由对象
 var router = new VueRouter({
     routes:[//配置路由规则
+        { path: '/', redirect: '/home' },
         { path:'/home',component:HomeContainer},
         { path:'/search',component:SearchContainer},
         { path:'/member',component:MemberContainer},
