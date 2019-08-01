@@ -87,10 +87,7 @@ export default {
   background-color: #fff;
   border: none;
 }
-.mui-col-xs-4 {
-  //修改iphone plus 底部显示问题
-  //width: 33.33333333%;
-}
+
 .mui-grid-view.mui-grid-9 .mui-table-view-cell {
   border: none;
 
