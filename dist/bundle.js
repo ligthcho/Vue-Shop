@@ -36154,7 +36154,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".mui-grid-view.mui-grid-9[data-v-4fcacc3e] {\n  background-color: #fff;\n  border: none;\n}\n.mui-col-xs-4[data-v-4fcacc3e] {\n  width: 33.33333333%;\n}\n.mui-grid-view.mui-grid-9 .mui-table-view-cell[data-v-4fcacc3e] {\n  border: none;\n}\n.mui-grid-view.mui-grid-9 .mui-table-view-cell img[data-v-4fcacc3e] {\n    width: 100%;\n}\n", ""]);
+exports.push([module.i, ".mui-grid-view.mui-grid-9[data-v-4fcacc3e] {\n  background-color: #fff;\n  border: none;\n}\n.mui-grid-view.mui-grid-9 .mui-table-view-cell[data-v-4fcacc3e] {\n  border: none;\n}\n.mui-grid-view.mui-grid-9 .mui-table-view-cell img[data-v-4fcacc3e] {\n    width: 100%;\n    height: 60%;\n}\n", ""]);
 
 // exports
 
@@ -41037,7 +41037,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".app-conter[data-v-5ef48958] {\n  padding-top: 40px;\n  padding-bottom: 50px;\n  overflow-x: hidden;\n}\n.v-enter[data-v-5ef48958] {\n  opacity: 0;\n  transform: translateX(100%);\n}\n.v-leave-to[data-v-5ef48958] {\n  opacity: 0;\n  transform: translateX(-100%);\n  position: absolute;\n}\n.v-enter-active[data-v-5ef48958],\n.v-leave-active[data-v-5ef48958] {\n  transition: all 0.5s ease;\n}\n.mui-bar-tab .mui-tab-item-llb.mui-active[data-v-5ef48958] {\n  color: #007aff;\n}\n.mui-bar-tab .mui-tab-item-llb[data-v-5ef48958] {\n  display: table-cell;\n  overflow: hidden;\n  width: 1%;\n  height: 50px;\n  text-align: center;\n  vertical-align: middle;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  color: #929292;\n}\n.mui-bar-tab .mui-tab-item-llb .mui-icon[data-v-5ef48958] {\n  top: 3px;\n  width: 24px;\n  height: 24px;\n  padding-top: 0;\n  padding-bottom: 0;\n}\n.mui-bar-tab .mui-tab-item-llb .mui-icon ~ .mui-tab-label[data-v-5ef48958] {\n  font-size: 11px;\n  display: block;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.mint-header[data-v-5ef48958] {\n  z-index: 999;\n}\n", ""]);
+exports.push([module.i, ".app-conter[data-v-5ef48958] {\n  padding-top: 40px;\n  padding-bottom: 200px;\n  overflow-x: hidden;\n}\n.v-enter[data-v-5ef48958] {\n  opacity: 0;\n  transform: translateX(100%);\n}\n.v-leave-to[data-v-5ef48958] {\n  opacity: 0;\n  transform: translateX(-100%);\n  position: absolute;\n}\n.v-enter-active[data-v-5ef48958],\n.v-leave-active[data-v-5ef48958] {\n  transition: all 0.5s ease;\n}\n.mui-bar-tab .mui-tab-item-llb.mui-active[data-v-5ef48958] {\n  color: #007aff;\n}\n.mui-bar-tab .mui-tab-item-llb[data-v-5ef48958] {\n  display: table-cell;\n  overflow: hidden;\n  width: 1%;\n  height: 50px;\n  text-align: center;\n  vertical-align: middle;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  color: #929292;\n}\n.mui-bar-tab .mui-tab-item-llb .mui-icon[data-v-5ef48958] {\n  top: 3px;\n  width: 24px;\n  height: 24px;\n  padding-top: 0;\n  padding-bottom: 0;\n}\n.mui-bar-tab .mui-tab-item-llb .mui-icon ~ .mui-tab-label[data-v-5ef48958] {\n  font-size: 11px;\n  display: block;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.mint-header[data-v-5ef48958] {\n  z-index: 999;\n}\n", ""]);
 
 // exports
 

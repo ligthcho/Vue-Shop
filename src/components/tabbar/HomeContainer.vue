@@ -89,14 +89,14 @@ export default {
 }
 .mui-col-xs-4 {
   //修改iphone plus 底部显示问题
-  width: 33.33333333%;
+  //width: 33.33333333%;
 }
 .mui-grid-view.mui-grid-9 .mui-table-view-cell {
   border: none;
 
   img {
     width: 100%;
-    // height: 60%;
+    height: 60%;
   }
 }
 </style>

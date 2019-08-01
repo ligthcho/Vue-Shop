@@ -56,7 +56,7 @@ export default {
 <style lang="scss" scoped>
     .app-conter{
         padding-top: 40px;
-		padding-bottom:50px;
+		padding-bottom:200px;
 		overflow-x:hidden; 
     }
 
