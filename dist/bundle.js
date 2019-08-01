@@ -19784,7 +19784,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _toast = __webpack_require__(18);
@@ -19827,35 +19827,56 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 exports.default = {
-    data: function data() {
-        return {
-            lunbotuList: []
-        };
-    },
-    created: function created() {
-        this.getLunbotu();
-    },
+  data: function data() {
+    return {
+      lunbotuList: []
+    };
+  },
+  created: function created() {
+    this.getLunbotu();
+  },
 
-    methods: {
-        getLunbotu: function getLunbotu() {
-            var _this = this;
+  methods: {
+    getLunbotu: function getLunbotu() {
+      var _this = this;
 
-            //使用vue-resource前面不能带斜线
-            this.$http.get("api/getlunbo").then(function (result) {
-                //console.log(result.body);
-                if (result.body.status === 0) {
-                    _this.lunbotuList = result.body.message;
-                } else {
-                    (0, _toast2.default)('加载失败');
-                }
-            });
+      //使用vue-resource前面不能带斜线
+      this.$http.get("api/getlunbo").then(function (result) {
+        //console.log(result.body);
+        if (result.body.status === 0) {
+          _this.lunbotuList = result.body.message;
+          _this.lunbotuList.forEach(function (item, i) {
+            console.log(i);
+            if (i == 0) item.img = "http://img1.imgtn.bdimg.com/it/u=220853970,1880286793&fm=26&gp=0.jpg";else if (i == 1) item.img = "http://img5.imgtn.bdimg.com/it/u=3220585992,1098625497&fm=26&gp=0.jpg";else item.img = "http://img1.imgtn.bdimg.com/it/u=1494362931,2812054376&fm=26&gp=0.jpg";
+          });
+        } else {
+          (0, _toast2.default)("加载失败");
         }
-    },
-    components: {
-        swiper: _swiper2.default
+      });
     }
+  },
+  components: {
+    swiper: _swiper2.default
+  }
 };
 
 /***/ }),
@@ -35780,7 +35801,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //导入对应的路由组件
 var router = new _vueRouter2.default({
     routes: [//配置路由规则
-    { path: '/home', component: _HomeContainer2.default }, { path: '/search', component: _SearchContainer2.default }, { path: '/member', component: _MemberContainer2.default }, { path: '/shopcart', component: _ShopcartContainer2.default }, { path: '/home/newslist', component: _NewsList2.default }, { path: '/home/newsinfo/:id', component: _NewsInfo2.default }, { path: '/home/photolist', component: _PhotoList2.default }, { path: '/home/photoinfo/:id', component: _PhotoInfo2.default }, { path: '/home/goodlist', component: _GoodList2.default }, { path: '/home/goodinfo/:id', component: _GoodInfo2.default, name: 'goodInfo' }, { path: '/home/gooddesc/:id', component: _GoodDesc2.default, name: 'goodDesc' }, { path: '/home/goodcomment/:id', component: _GoodComment2.default, name: 'goodComment' }],
+    { path: '/', redirect: '/home' }, { path: '/home', component: _HomeContainer2.default }, { path: '/search', component: _SearchContainer2.default }, { path: '/member', component: _MemberContainer2.default }, { path: '/shopcart', component: _ShopcartContainer2.default }, { path: '/home/newslist', component: _NewsList2.default }, { path: '/home/newsinfo/:id', component: _NewsInfo2.default }, { path: '/home/photolist', component: _PhotoList2.default }, { path: '/home/photoinfo/:id', component: _PhotoInfo2.default }, { path: '/home/goodlist', component: _GoodList2.default }, { path: '/home/goodinfo/:id', component: _GoodInfo2.default, name: 'goodInfo' }, { path: '/home/gooddesc/:id', component: _GoodDesc2.default, name: 'goodDesc' }, { path: '/home/goodcomment/:id', component: _GoodComment2.default, name: 'goodComment' }],
     linkActiveClass: 'mui-active' //覆盖默认路由高亮类，默认类叫router-link-active
 });
 exports.default = router;
@@ -36133,7 +36154,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".mui-grid-view.mui-grid-9[data-v-4fcacc3e] {\n  background-color: #fff;\n  border: none;\n}\n.mui-grid-view.mui-grid-9 .mui-table-view-cell[data-v-4fcacc3e] {\n  border: none;\n}\n.mui-grid-view.mui-grid-9 .mui-table-view-cell img[data-v-4fcacc3e] {\n    width: 60%;\n    height: 60%;\n}\n", ""]);
+exports.push([module.i, ".mui-grid-view.mui-grid-9[data-v-4fcacc3e] {\n  background-color: #fff;\n  border: none;\n}\n.mui-col-xs-4[data-v-4fcacc3e] {\n  width: 33.33333333%;\n}\n.mui-grid-view.mui-grid-9 .mui-table-view-cell[data-v-4fcacc3e] {\n  border: none;\n}\n.mui-grid-view.mui-grid-9 .mui-table-view-cell img[data-v-4fcacc3e] {\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -36577,33 +36598,41 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "mui-numbox", staticStyle: { height: "25px" } }, [
-      _c(
-        "button",
-        {
-          staticClass: "mui-btn mui-btn-numbox-minus",
-          attrs: { type: "button" }
-        },
-        [_vm._v("-")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        ref: "numbox",
-        staticClass: "mui-input-numbox",
-        attrs: { id: "test", type: "number" },
-        domProps: { value: _vm.initcount },
-        on: { change: _vm.onChange }
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "mui-btn mui-btn-numbox-plus",
-          attrs: { type: "button" }
-        },
-        [_vm._v("+")]
-      )
-    ])
+    _c(
+      "div",
+      {
+        staticClass: "mui-numbox",
+        staticStyle: { height: "25px" },
+        attrs: { "data-numbox-min": "1" }
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "mui-btn mui-btn-numbox-minus",
+            attrs: { type: "button" }
+          },
+          [_vm._v("-")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          ref: "numbox",
+          staticClass: "mui-input-numbox",
+          attrs: { id: "test", type: "number" },
+          domProps: { value: _vm.initcount },
+          on: { change: _vm.onChange }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "mui-btn mui-btn-numbox-plus",
+            attrs: { type: "button" }
+          },
+          [_vm._v("+")]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -37464,7 +37493,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".cart-container[data-v-02872cec] {\n  background-color: #eee;\n  overflow: hidden;\n}\n.cart-container .goodslist .mui-card-content-inner[data-v-02872cec] {\n    display: flex;\n    align-items: center;\n}\n.cart-container .goodslist img[data-v-02872cec] {\n    width: 60px;\n    height: 60px;\n}\n.cart-container .goodslist h1[data-v-02872cec] {\n    font-size: 13px;\n}\n.cart-container .goodslist .info[data-v-02872cec] {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.cart-container .goodslist .info p[data-v-02872cec] {\n      display: flex;\n      justify-content: space-between;\n}\n.cart-container .goodslist .info .price[data-v-02872cec] {\n      color: red;\n      font-weight: bold;\n}\n.cart-container .goodslist .total-count[data-v-02872cec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.cart-container .goodslist .total-count .red[data-v-02872cec] {\n      color: red;\n      font-weight: bold;\n      font-size: 13px;\n}\n", ""]);
+exports.push([module.i, ".cart-container[data-v-02872cec] {\n  background-color: #eee;\n  overflow: hidden;\n}\n.cart-container .goodslist .mui-card-content-inner[data-v-02872cec] {\n    display: flex;\n    align-items: center;\n}\n.cart-container .goodslist img[data-v-02872cec] {\n    width: 60px;\n    height: 60px;\n}\n.cart-container .goodslist h1[data-v-02872cec] {\n    font-size: 13px;\n}\n.cart-container .goodslist .info[data-v-02872cec] {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    width: 100%;\n}\n.cart-container .goodslist .info p[data-v-02872cec] {\n      display: flex;\n      justify-content: space-between;\n}\n.cart-container .goodslist .info .price[data-v-02872cec] {\n      color: red;\n      font-weight: bold;\n}\n.cart-container .goodslist .total-count[data-v-02872cec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.cart-container .goodslist .total-count .red[data-v-02872cec] {\n      color: red;\n      font-weight: bold;\n      font-size: 13px;\n}\n", ""]);
 
 // exports
 
@@ -40886,7 +40915,7 @@ var render = function() {
     [
       _c(
         "mt-header",
-        { attrs: { fixed: "", title: "vue项目" } },
+        { attrs: { fixed: "", title: "基于vue的商城项目" } },
         [
           _c(
             "router-link",

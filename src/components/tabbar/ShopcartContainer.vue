@@ -102,6 +102,7 @@ export default {
       display: flex;
       flex-direction: column; //改方向
       justify-content: space-between;
+      width: 100%;
       p {
         display: flex;
         justify-content: space-between;
